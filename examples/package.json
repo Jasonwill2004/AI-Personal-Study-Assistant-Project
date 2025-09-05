@@ -1,13 +1,16 @@
 {
-  "name": "zero-shot-prompting-examples",
+  "name": "ai-prompting-examples",
   "version": "1.0.0",
-  "description": "Zero Shot Prompting Implementation Examples",
+  "description": "AI Prompting Techniques Implementation Examples",
   "main": "zero-shot-implementation.js",
   "scripts": {
     "demo": "node run-demo.js",
+    "zero-shot": "node zero-shot-implementation.js",
+    "one-shot": "node one-shot-implementation.js",
+    "one-shot-demo": "node run-one-shot-demo.js",
     "test": "node zero-shot-implementation.js"
   },
-  "keywords": ["ai", "education", "prompting", "zero-shot"],
+  "keywords": ["ai", "education", "prompting", "zero-shot", "one-shot", "multi-shot", "dynamic"],
   "author": "Jason William",
   "license": "MIT"
 }
