@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        cd examples
+        npm install
+        
+    - name: Run tests
+      run: |
+        cd examples
+        npm test
+        
+    - name: Run demos
+      run: |
+        cd examples
+        npm run demo
+        npm run one-shot-demo
+        npm run multi-shot-demo
