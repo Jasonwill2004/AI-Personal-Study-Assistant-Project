@@ -12,9 +12,12 @@
     "multi-shot-demo": "node run-multi-shot-demo.js",
     "dynamic": "node dynamic-implementation.js",
     "dynamic-demo": "node run-dynamic-demo.js",
+    "chain-of-thought": "node chain-of-thought-implementation.js",
+    "chain-of-thought-demo": "node run-chain-of-thought-demo.js",
+    "demo:chain-of-thought": "node run-chain-of-thought-demo.js",
     "test": "node zero-shot-implementation.js"
   },
-  "keywords": ["ai", "education", "prompting", "zero-shot", "one-shot", "multi-shot", "dynamic"],
+  "keywords": ["ai", "education", "prompting", "zero-shot", "one-shot", "multi-shot", "dynamic", "chain-of-thought"],
   "author": "Jason William",
   "license": "MIT"
 }
