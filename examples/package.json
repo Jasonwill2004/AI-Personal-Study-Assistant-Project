@@ -8,6 +8,8 @@
     "zero-shot": "node zero-shot-implementation.js",
     "one-shot": "node one-shot-implementation.js",
     "one-shot-demo": "node run-one-shot-demo.js",
+    "multi-shot": "node multi-shot-implementation.js",
+    "multi-shot-demo": "node run-multi-shot-demo.js",
     "test": "node zero-shot-implementation.js"
   },
   "keywords": ["ai", "education", "prompting", "zero-shot", "one-shot", "multi-shot", "dynamic"],
