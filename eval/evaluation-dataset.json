@@ -1,0 +1,546 @@
+{
+  "metadata": {
+    "name": "AI Personal Study Assistant Evaluation Dataset",
+    "version": "1.0.0",
+    "description": "Comprehensive evaluation dataset for testing all prompting techniques",
+    "totalSamples": 25,
+    "techniques": ["zero-shot", "one-shot", "multi-shot", "dynamic", "chain-of-thought"],
+    "subjects": ["mathematics", "science", "literature"],
+    "evaluationCriteria": ["correctness", "efficiency", "scalability", "educational_quality"],
+    "created": "2025-09-09",
+    "author": "Jason William"
+  },
+  
+  "zero_shot_samples": [
+    {
+      "id": "zs_001",
+      "technique": "zero-shot",
+      "subject": "mathematics",
+      "query": "Solve the quadratic equation 2x² - 8x + 6 = 0",
+      "level": "10th Grade Algebra",
+      "expectedOutput": {
+        "solution": "x = 3 or x = 1",
+        "method": "factoring or quadratic formula",
+        "steps": "clear step-by-step solution",
+        "verification": "solution checking included"
+      },
+      "evaluationFocus": "mathematical accuracy and solution methodology",
+      "maxResponseTime": 2000,
+      "difficultyLevel": "intermediate"
+    },
+    {
+      "id": "zs_002", 
+      "technique": "zero-shot",
+      "subject": "science",
+      "query": "Explain the process of photosynthesis and its importance for life on Earth",
+      "level": "8th Grade Biology",
+      "expectedOutput": {
+        "process": "light-dependent and light-independent reactions",
+        "equation": "6CO₂ + 6H₂O + light energy → C₆H₁₂O₆ + 6O₂",
+        "importance": "oxygen production and food chain foundation",
+        "clarity": "age-appropriate explanation"
+      },
+      "evaluationFocus": "scientific accuracy and educational clarity",
+      "maxResponseTime": 2000,
+      "difficultyLevel": "basic"
+    },
+    {
+      "id": "zs_003",
+      "technique": "zero-shot", 
+      "subject": "literature",
+      "query": "Analyze the theme of courage in Harper Lee's 'To Kill a Mockingbird'",
+      "level": "11th Grade English",
+      "expectedOutput": {
+        "theme_identification": "multiple forms of courage explored",
+        "character_examples": "Atticus, Mrs. Dubose, Boo Radley",
+        "textual_evidence": "specific quotes and scenes",
+        "literary_analysis": "thematic development throughout novel"
+      },
+      "evaluationFocus": "literary analysis depth and textual support",
+      "maxResponseTime": 2000,
+      "difficultyLevel": "advanced"
+    },
+    {
+      "id": "zs_004",
+      "technique": "zero-shot",
+      "subject": "mathematics",
+      "query": "Calculate the area of a triangle with sides 5, 12, and 13 units",
+      "level": "9th Grade Geometry",
+      "expectedOutput": {
+        "area": "30 square units",
+        "method": "Heron's formula or right triangle recognition", 
+        "verification": "Pythagorean theorem check",
+        "explanation": "clear geometric reasoning"
+      },
+      "evaluationFocus": "geometric problem-solving and method selection",
+      "maxResponseTime": 1500,
+      "difficultyLevel": "intermediate"
+    },
+    {
+      "id": "zs_005",
+      "technique": "zero-shot",
+      "subject": "science", 
+      "query": "Describe the water cycle and explain how human activities affect it",
+      "level": "7th Grade Earth Science",
+      "expectedOutput": {
+        "cycle_stages": "evaporation, condensation, precipitation, collection",
+        "human_impact": "pollution, deforestation, urbanization effects",
+        "environmental_connection": "climate change relationship",
+        "solutions": "conservation and sustainable practices"
+      },
+      "evaluationFocus": "environmental science understanding and real-world connections",
+      "maxResponseTime": 2000,
+      "difficultyLevel": "intermediate"
+    }
+  ],
+
+  "one_shot_samples": [
+    {
+      "id": "os_001",
+      "technique": "one-shot",
+      "subject": "mathematics",
+      "query": "Factor the polynomial 3x² + 10x + 8",
+      "level": "10th Grade Algebra",
+      "example": {
+        "problem": "Factor 2x² + 7x + 3",
+        "solution": "Step 1: Find factors of 2×3=6 that add to 7... Final: (2x+1)(x+3)"
+      },
+      "expectedOutput": {
+        "format_consistency": "follows example structure exactly",
+        "solution": "(3x + 4)(x + 2)",
+        "step_by_step": "clear progression like example",
+        "verification": "expansion check included"
+      },
+      "evaluationFocus": "format consistency and example pattern replication",
+      "maxResponseTime": 1800,
+      "difficultyLevel": "intermediate"
+    },
+    {
+      "id": "os_002",
+      "technique": "one-shot",
+      "subject": "science",
+      "query": "Explain the greenhouse effect and its impact on global climate",
+      "level": "9th Grade Environmental Science", 
+      "example": {
+        "concept": "photosynthesis explanation with process, equation, and importance",
+        "format": "clear definition → process steps → chemical equation → significance"
+      },
+      "expectedOutput": {
+        "format_match": "follows scientific explanation pattern",
+        "definition": "clear greenhouse effect description",
+        "mechanism": "step-by-step process explanation",
+        "impact": "climate change consequences"
+      },
+      "evaluationFocus": "scientific explanation consistency and pattern adherence",
+      "maxResponseTime": 1800,
+      "difficultyLevel": "intermediate"
+    },
+    {
+      "id": "os_003",
+      "technique": "one-shot",
+      "subject": "literature",
+      "query": "Analyze the symbolism of the conch shell in 'Lord of the Flies'",
+      "level": "10th Grade English",
+      "example": {
+        "symbol": "green light in The Great Gatsby",
+        "format": "symbol identification → meaning analysis → textual evidence → broader significance"
+      },
+      "expectedOutput": {
+        "pattern_consistency": "follows literary analysis format",
+        "symbol_meaning": "democracy, order, civilization",
+        "textual_support": "specific scenes and quotes",
+        "thematic_connection": "broader novel themes"
+      },
+      "evaluationFocus": "literary analysis format consistency and depth",
+      "maxResponseTime": 1800,
+      "difficultyLevel": "advanced"
+    },
+    {
+      "id": "os_004",
+      "technique": "one-shot",
+      "subject": "mathematics",
+      "query": "Solve the system: 2x + 3y = 12, x - y = 1",
+      "level": "9th Grade Algebra",
+      "example": {
+        "system": "x + 2y = 8, 3x - y = 5",
+        "method": "substitution with clear steps and verification"
+      },
+      "expectedOutput": {
+        "method_consistency": "follows example solving approach",
+        "solution": "x = 3, y = 2",
+        "verification": "substitution back into original equations",
+        "clear_steps": "systematic progression"
+      },
+      "evaluationFocus": "algebraic method consistency and solution accuracy",
+      "maxResponseTime": 1500,
+      "difficultyLevel": "intermediate"
+    },
+    {
+      "id": "os_005",
+      "technique": "one-shot",
+      "subject": "science",
+      "query": "Describe cellular respiration and its role in energy production",
+      "level": "11th Grade Biology",
+      "example": {
+        "process": "photosynthesis with stages, locations, and products",
+        "format": "overview → detailed stages → cellular location → overall significance"
+      },
+      "expectedOutput": {
+        "format_adherence": "matches biological process explanation pattern",
+        "stages": "glycolysis, Krebs cycle, electron transport",
+        "locations": "cytoplasm and mitochondria",
+        "energy_yield": "ATP production quantification"
+      },
+      "evaluationFocus": "biological process explanation consistency and accuracy",
+      "maxResponseTime": 2000,
+      "difficultyLevel": "advanced"
+    }
+  ],
+
+  "multi_shot_samples": [
+    {
+      "id": "ms_001",
+      "technique": "multi-shot",
+      "subject": "mathematics",
+      "query": "Prove that the square root of 2 is irrational",
+      "level": "11th Grade Advanced Math",
+      "examples": [
+        {"type": "basic_proof", "method": "direct proof technique"},
+        {"type": "contradiction_proof", "method": "proof by contradiction"},
+        {"type": "algebraic_proof", "method": "algebraic manipulation"}
+      ],
+      "expectedOutput": {
+        "method_selection": "appropriate proof technique chosen",
+        "logical_structure": "clear proof progression",
+        "mathematical_rigor": "formal proof standards",
+        "conclusion": "clear statement of result"
+      },
+      "evaluationFocus": "proof methodology selection and mathematical reasoning",
+      "maxResponseTime": 2500,
+      "difficultyLevel": "expert"
+    },
+    {
+      "id": "ms_002",
+      "technique": "multi-shot",
+      "subject": "science",
+      "query": "Explain the theory of evolution by natural selection",
+      "level": "12th Grade AP Biology",
+      "examples": [
+        {"approach": "historical_development", "focus": "Darwin's observations"},
+        {"approach": "mechanism_explanation", "focus": "selection pressures"},
+        {"approach": "evidence_based", "focus": "fossil and genetic evidence"}
+      ],
+      "expectedOutput": {
+        "approach_selection": "most appropriate explanation method",
+        "comprehensive_coverage": "mechanism, evidence, and examples",
+        "scientific_accuracy": "current understanding reflected",
+        "real_world_examples": "concrete illustrations provided"
+      },
+      "evaluationFocus": "scientific explanation approach selection and comprehensiveness",
+      "maxResponseTime": 2500,
+      "difficultyLevel": "advanced"
+    },
+    {
+      "id": "ms_003",
+      "technique": "multi-shot",
+      "subject": "literature",
+      "query": "Compare and contrast the tragic heroes in Macbeth and Hamlet",
+      "level": "12th Grade AP Literature",
+      "examples": [
+        {"analysis_type": "character_comparison", "method": "trait-by-trait analysis"},
+        {"analysis_type": "thematic_comparison", "method": "theme-focused discussion"},
+        {"analysis_type": "structural_comparison", "method": "plot and development analysis"}
+      ],
+      "expectedOutput": {
+        "comparison_method": "appropriate analytical approach selected",
+        "textual_evidence": "specific quotes and scenes from both plays",
+        "critical_analysis": "deep literary insight demonstrated",
+        "synthesis": "meaningful conclusions about tragic heroism"
+      },
+      "evaluationFocus": "comparative analysis methodology and literary insight depth",
+      "maxResponseTime": 3000,
+      "difficultyLevel": "expert"
+    },
+    {
+      "id": "ms_004",
+      "technique": "multi-shot", 
+      "subject": "mathematics",
+      "query": "Optimize the function f(x) = x³ - 6x² + 9x + 2",
+      "level": "12th Grade Calculus",
+      "examples": [
+        {"method": "first_derivative_test", "application": "finding critical points"},
+        {"method": "second_derivative_test", "application": "determining concavity"},
+        {"method": "graphical_analysis", "application": "visual interpretation"}
+      ],
+      "expectedOutput": {
+        "optimization_method": "appropriate calculus technique selected",
+        "critical_points": "x = 1 and x = 3 identified",
+        "classification": "local maximum at x = 1, minimum at x = 3",
+        "verification": "second derivative test or graph analysis"
+      },
+      "evaluationFocus": "calculus method selection and optimization accuracy",
+      "maxResponseTime": 2500,
+      "difficultyLevel": "advanced"
+    },
+    {
+      "id": "ms_005",
+      "technique": "multi-shot",
+      "subject": "science",
+      "query": "Analyze the molecular geometry of SF₄ using VSEPR theory",
+      "level": "11th Grade AP Chemistry",
+      "examples": [
+        {"molecule": "CH₄", "geometry": "tetrahedral", "method": "electron pair counting"},
+        {"molecule": "NH₃", "geometry": "trigonal pyramidal", "method": "lone pair consideration"},
+        {"molecule": "H₂O", "geometry": "bent", "method": "lone pair effects on angles"}
+      ],
+      "expectedOutput": {
+        "method_application": "VSEPR theory correctly applied",
+        "electron_geometry": "trigonal bipyramidal electron arrangement",
+        "molecular_geometry": "seesaw or distorted tetrahedral",
+        "bond_angles": "approximate angles provided with reasoning"
+      },
+      "evaluationFocus": "chemical theory application and molecular structure prediction",
+      "maxResponseTime": 2000,
+      "difficultyLevel": "advanced"
+    }
+  ],
+
+  "dynamic_samples": [
+    {
+      "id": "dy_001",
+      "technique": "dynamic",
+      "subject": "mathematics",
+      "query": "I've been struggling with logarithms for weeks and I'm getting really frustrated",
+      "level": "11th Grade Algebra 2",
+      "userContext": {
+        "strugglingIndicators": true,
+        "frustrationLevel": "high",
+        "timeSpent": 45,
+        "attempts": 8,
+        "previousErrors": ["base_confusion", "property_application"],
+        "learningStyle": "visual"
+      },
+      "expectedOutput": {
+        "adaptation_detected": "struggling student pattern recognized",
+        "response_modification": "simplified explanation with encouragement",
+        "scaffolding": "additional support and visual aids",
+        "emotional_support": "frustration acknowledgment and motivation"
+      },
+      "evaluationFocus": "personalization accuracy and emotional intelligence",
+      "maxResponseTime": 1500,
+      "difficultyLevel": "adaptive"
+    },
+    {
+      "id": "dy_002",
+      "technique": "dynamic",
+      "subject": "science", 
+      "query": "Can you explain quantum mechanics at the university level? I find basic explanations too simple",
+      "level": "12th Grade AP Physics",
+      "userContext": {
+        "advancedLearner": true,
+        "quickMastery": true,
+        "seekingChallenge": true,
+        "previousAccuracy": 0.96,
+        "engagementLevel": "very_high",
+        "preferredDepth": "theoretical"
+      },
+      "expectedOutput": {
+        "adaptation_detected": "advanced learner pattern recognized",
+        "complexity_increase": "university-level concepts introduced",
+        "challenge_appropriate": "intellectually stimulating content",
+        "depth_adjustment": "theoretical foundations emphasized"
+      },
+      "evaluationFocus": "advanced learner recognition and appropriate challenge level",
+      "maxResponseTime": 2000,
+      "difficultyLevel": "adaptive"
+    },
+    {
+      "id": "dy_003",
+      "technique": "dynamic",
+      "subject": "literature",
+      "query": "I need help with poetry analysis but I learn better with examples and comparisons",
+      "level": "10th Grade English",
+      "userContext": {
+        "learningStyle": "comparative",
+        "needsExamples": true,
+        "visualLearner": false,
+        "analyticalApproach": true,
+        "timePreference": "methodical",
+        "confidenceLevel": "medium"
+      },
+      "expectedOutput": {
+        "style_adaptation": "comparative analysis approach selected",
+        "example_provision": "multiple poem examples for comparison",
+        "methodical_approach": "step-by-step analytical framework",
+        "confidence_building": "structured approach for skill development"
+      },
+      "evaluationFocus": "learning style accommodation and methodology adaptation",
+      "maxResponseTime": 1800,
+      "difficultyLevel": "adaptive"
+    },
+    {
+      "id": "dy_004",
+      "technique": "dynamic",
+      "subject": "mathematics",
+      "query": "Statistics problems are really confusing me and I'm falling behind the class",
+      "level": "12th Grade AP Statistics",
+      "userContext": {
+        "strugglingIndicators": true,
+        "peerComparison": "below_average",
+        "anxietyLevel": "high",
+        "timeConstraints": true,
+        "previousSuccess": ["algebra", "geometry"],
+        "currentWeakness": ["probability", "distributions"]
+      },
+      "expectedOutput": {
+        "anxiety_recognition": "test anxiety and pressure acknowledged",
+        "strength_building": "connection to previous successes",
+        "targeted_support": "specific help with weak areas",
+        "confidence_restoration": "achievable goal setting"
+      },
+      "evaluationFocus": "anxiety management and targeted intervention",
+      "maxResponseTime": 1500,
+      "difficultyLevel": "adaptive"
+    },
+    {
+      "id": "dy_005",
+      "technique": "dynamic",
+      "subject": "science",
+      "query": "I want to understand biochemistry for my pre-med preparation",
+      "level": "12th Grade Advanced Biology",
+      "userContext": {
+        "careerGoal": "pre_medical",
+        "motivationLevel": "very_high",
+        "studyIntensity": "high",
+        "futureApplications": true,
+        "detailOriented": true,
+        "memorabilityNeeds": "high"
+      },
+      "expectedOutput": {
+        "career_alignment": "medical relevance emphasized",
+        "application_focus": "clinical connections highlighted",
+        "detail_appropriate": "pre-med level detail provided",
+        "memorization_aids": "mnemonics and organizational tools"
+      },
+      "evaluationFocus": "career-goal alignment and future application relevance",
+      "maxResponseTime": 2000,
+      "difficultyLevel": "adaptive"
+    }
+  ],
+
+  "chain_of_thought_samples": [
+    {
+      "id": "cot_001",
+      "technique": "chain-of-thought",
+      "subject": "mathematics",
+      "query": "Solve and explain: If log₂(x+3) + log₂(x-1) = 3, find x",
+      "level": "11th Grade Advanced Algebra",
+      "expectedOutput": {
+        "reasoning_steps": "minimum 5 explicit thinking steps",
+        "thought_process": "visible decision-making at each stage",
+        "verification": "solution checking with original equation",
+        "metacognitive_elements": "explanation of reasoning choices",
+        "learning_transfer": "connection to broader logarithm principles"
+      },
+      "evaluationFocus": "explicit reasoning demonstration and metacognitive development",
+      "maxResponseTime": 3000,
+      "difficultyLevel": "advanced"
+    },
+    {
+      "id": "cot_002", 
+      "technique": "chain-of-thought",
+      "subject": "science",
+      "query": "Explain why ice floats on water from a molecular perspective",
+      "level": "10th Grade Chemistry",
+      "expectedOutput": {
+        "reasoning_chain": "molecular → structural → physical property progression",
+        "thinking_visible": "explicit consideration of molecular interactions",
+        "scientific_method": "hypothesis-evidence-conclusion structure",
+        "concept_connections": "linking molecular structure to macroscopic behavior",
+        "alternative_consideration": "what-if scenarios explored"
+      },
+      "evaluationFocus": "scientific reasoning process and concept connection ability",
+      "maxResponseTime": 2500,
+      "difficultyLevel": "intermediate"
+    },
+    {
+      "id": "cot_003",
+      "technique": "chain-of-thought",
+      "subject": "literature", 
+      "query": "Analyze how Orwell uses symbolism in '1984' to critique totalitarianism",
+      "level": "12th Grade AP Literature",
+      "expectedOutput": {
+        "analytical_reasoning": "symbol identification → meaning → critique connection",
+        "evidence_building": "systematic textual evidence gathering",
+        "interpretation_process": "visible analytical thinking progression",
+        "critical_evaluation": "assessment of Orwell's effectiveness",
+        "broader_connections": "historical and contemporary relevance"
+      },
+      "evaluationFocus": "literary critical thinking development and analytical reasoning",
+      "maxResponseTime": 3500,
+      "difficultyLevel": "expert"
+    },
+    {
+      "id": "cot_004",
+      "technique": "chain-of-thought",
+      "subject": "mathematics",
+      "query": "Prove the Pythagorean theorem using geometric reasoning",
+      "level": "9th Grade Geometry",
+      "expectedOutput": {
+        "proof_reasoning": "step-by-step logical progression visible",
+        "geometric_thinking": "spatial reasoning process explained",
+        "verification_steps": "checking logic at each stage",
+        "alternative_approaches": "consideration of different proof methods",
+        "understanding_check": "explanation of why proof works"
+      },
+      "evaluationFocus": "geometric reasoning development and proof construction thinking",
+      "maxResponseTime": 3000,
+      "difficultyLevel": "advanced"
+    },
+    {
+      "id": "cot_005",
+      "technique": "chain-of-thought",
+      "subject": "science",
+      "query": "Design an experiment to test which factors affect plant growth rate",
+      "level": "8th Grade Biology",
+      "expectedOutput": {
+        "experimental_design": "systematic hypothesis → variables → procedure progression",
+        "scientific_thinking": "control identification and reasoning explained",
+        "problem_solving": "experimental challenges anticipated and addressed",
+        "data_consideration": "measurement and analysis planning visible",
+        "methodology_justification": "explanation of design choices"
+      },
+      "evaluationFocus": "scientific method reasoning and experimental design thinking",
+      "maxResponseTime": 2500,
+      "difficultyLevel": "intermediate"
+    }
+  ],
+
+  "performance_benchmarks": {
+    "correctness_targets": {
+      "zero_shot": 99.2,
+      "one_shot": 99.5,
+      "multi_shot": 99.7,
+      "dynamic": 99.8,
+      "chain_of_thought": 99.9
+    },
+    "efficiency_targets": {
+      "zero_shot": 2000,
+      "one_shot": 1800,
+      "multi_shot": 2500,
+      "dynamic": 1500,
+      "chain_of_thought": 3000
+    },
+    "scalability_requirements": {
+      "concurrent_users": 1000,
+      "response_consistency": 95,
+      "error_rate_threshold": 1
+    },
+    "educational_quality_metrics": {
+      "pedagogical_effectiveness": 90,
+      "student_engagement": 85,
+      "learning_outcome_improvement": 80,
+      "knowledge_retention": 88
+    }
+  }
+}
