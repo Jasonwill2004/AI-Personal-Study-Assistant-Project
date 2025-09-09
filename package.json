@@ -1,0 +1,83 @@
+{
+  "name": "ai-personal-study-assistant",
+  "version": "1.0.0",
+  "description": "Comprehensive AI Personal Study Assistant with Advanced Prompting Techniques",
+  "main": "examples/zero-shot-implementation.js",
+  "scripts": {
+    "start": "node examples/zero-shot-implementation.js",
+    "test": "npm run eval:all",
+    
+    "demo:zero-shot": "node examples/zero-shot-implementation.js",
+    "demo:one-shot": "node examples/run-one-shot-demo.js",
+    "demo:multi-shot": "node examples/run-multi-shot-demo.js", 
+    "demo:dynamic": "node examples/run-dynamic-demo.js",
+    "demo:chain-of-thought": "node examples/run-chain-of-thought-demo.js",
+    "demo:all": "npm run demo:zero-shot && npm run demo:one-shot && npm run demo:multi-shot && npm run demo:dynamic && npm run demo:chain-of-thought",
+    
+    "eval:all": "node eval/evaluation-pipeline.js all",
+    "eval:zero-shot": "node eval/evaluation-pipeline.js zero-shot",
+    "eval:one-shot": "node eval/evaluation-pipeline.js one-shot", 
+    "eval:multi-shot": "node eval/evaluation-pipeline.js multi-shot",
+    "eval:dynamic": "node eval/evaluation-pipeline.js dynamic",
+    "eval:chain-of-thought": "node eval/evaluation-pipeline.js chain-of-thought",
+    "eval:help": "node eval/evaluation-pipeline.js help",
+    
+    "framework:test": "node eval/testing-framework.js",
+    "server:start": "node backend/server.js",
+    "server:dev": "nodemon backend/server.js"
+  },
+  "keywords": [
+    "ai",
+    "education", 
+    "prompting",
+    "zero-shot",
+    "one-shot",
+    "multi-shot", 
+    "dynamic",
+    "chain-of-thought",
+    "evaluation",
+    "testing",
+    "educational-ai",
+    "personalized-learning",
+    "intelligent-tutoring"
+  ],
+  "author": "Jason William",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jasonwill2004/AI-Personal-Study-Assistant-Project.git"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0",
+    "express-rate-limit": "^6.10.0",
+    "express-validator": "^7.0.1",
+    "winston": "^3.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "jest": "^29.6.2"
+  },
+  "directories": {
+    "examples": "examples",
+    "eval": "eval",
+    "backend": "backend", 
+    "frontend": "frontend",
+    "prompts": "prompts"
+  },
+  "files": [
+    "examples/",
+    "eval/",
+    "backend/",
+    "frontend/", 
+    "prompts/",
+    "README.md",
+    "CONTRIBUTING.md",
+    "ROADMAP.md"
+  ]
+}
